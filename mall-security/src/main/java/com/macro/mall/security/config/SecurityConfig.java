@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .disable()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                // 自定义权限拒绝处理类
+                // 自定义权限拒绝处理类  处理授权异常 处理认证异常
                 .and()
                 .exceptionHandling()
                 .accessDeniedHandler(restfulAccessDeniedHandler())
