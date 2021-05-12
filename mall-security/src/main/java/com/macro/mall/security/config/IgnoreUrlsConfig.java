@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 用于配置白名单资源路径
+ * 用于配置白名单资源路径，不被filter，即放行
  * Created by macro on 2018/11/5.
  */
 @Getter
@@ -16,6 +16,6 @@ import java.util.List;
 @ConfigurationProperties(prefix = "secure.ignored")
 public class IgnoreUrlsConfig {
 
-    private List<String> urls = new ArrayList<>();
+    private List<String> urls = new ArrayList<>();  // 在配置文件secure：ignored:urls
 
 }

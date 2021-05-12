@@ -112,7 +112,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
-    @ConditionalOnBean(name = "dynamicSecurityService")
+    @ConditionalOnBean(name = "dynamicSecurityService") // 容器中有dynamicSecurityService这个bean,才注入dynamicSecurityFilter
     @Bean
     public DynamicSecurityFilter dynamicSecurityFilter() {
         return new DynamicSecurityFilter();
