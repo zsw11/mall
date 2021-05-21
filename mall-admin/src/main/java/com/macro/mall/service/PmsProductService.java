@@ -18,8 +18,8 @@ public interface PmsProductService {
     /**
      * 创建商品
      */
-    @Transactional(isolation = Isolation.DEFAULT,propagation = Propagation.REQUIRED)
-    int create(PmsProductParam productParam);
+    @Transactional(isolation = Isolation.DEFAULT,propagation = Propagation.REQUIRED) //@Transactional  只对公共方法public生效(网上看的，待验证),
+    int create(PmsProductParam productParam);// 接口里的方法默认是public
 
     /**
      * 根据商品编号获取更新信息

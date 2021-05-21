@@ -8,6 +8,7 @@ import com.macro.mall.dto.UmsAdminParam;
 import com.macro.mall.dto.UpdateAdminPasswordParam;
 import com.macro.mall.model.UmsAdmin;
 import com.macro.mall.model.UmsRole;
+import com.macro.mall.security.util.JwtTokenUtil;
 import com.macro.mall.service.UmsAdminService;
 import com.macro.mall.service.UmsRoleService;
 import io.swagger.annotations.Api;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -107,6 +109,10 @@ public class UmsAdminController {
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult logout() {
+        JwtTokenUtil jwtTokenUtil = new JwtTokenUtil();// 这里让前端清理token ,于是他就没有退出之前的token,就无法登录了，后端可以不用做处理。
+        // 如果要后端处理，也可以退出了的token放到黑名单，定期清理。登录钱判断token 是不是黑名单的token。
+        //访问时从token中取出版本号和用户id 和 redis中存储 用户id和版本号 做对比，不一致则不给访问。
+        //用户登出的时候在redis中把用户版本号加一。
         return CommonResult.success(null);
     }
 

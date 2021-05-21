@@ -52,7 +52,7 @@ public class MemberReadHistoryServiceImpl implements MemberReadHistoryService {
     @Override
     public Page<MemberReadHistory> list(Integer pageNum, Integer pageSize) {
         UmsMember member = memberService.getCurrentMember();
-        Pageable pageable = PageRequest.of(pageNum-1, pageSize);
+            Pageable pageable = PageRequest.of(pageNum-1, pageSize);
         return memberReadHistoryRepository.findByMemberIdOrderByCreateTimeDesc(member.getId(),pageable);
     }
 

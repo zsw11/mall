@@ -87,7 +87,7 @@ public class EsProductController {
         return CommonResult.success(CommonPage.restPage(esProductPage));
     }
 
-    @ApiOperation(value = "根据商品id推荐商品")
+    @ApiOperation(value = "根据商品id获取商品信息，推荐其他商品")
     @RequestMapping(value = "/recommend/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<EsProduct>> recommend(@PathVariable Long id,

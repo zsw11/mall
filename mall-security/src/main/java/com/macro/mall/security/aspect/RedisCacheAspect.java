@@ -35,7 +35,7 @@ public class RedisCacheAspect {
         Method method = methodSignature.getMethod();
         Object result = null;
         try {
-            result = joinPoint.proceed();
+            result = joinPoint.proceed();//执行目标方法
         } catch (Throwable throwable) {
             //有CacheException注解的方法需要抛出异常
             if (method.isAnnotationPresent(CacheException.class)) {

@@ -28,10 +28,10 @@ public class EsProduct implements Serializable {
     @Field(type = FieldType.Keyword)
     private String brandName;
     private Long productCategoryId;
-    @Field(type = FieldType.Keyword)
+    @Field(type = FieldType.Keyword)      //不需要中文分词
     private String productCategoryName;
     private String pic;
-    @Field(analyzer = "ik_max_word",type = FieldType.Text)
+    @Field(analyzer = "ik_max_word",type = FieldType.Text) //需要中文分词
     private String name;
     @Field(analyzer = "ik_max_word",type = FieldType.Text)
     private String subTitle;

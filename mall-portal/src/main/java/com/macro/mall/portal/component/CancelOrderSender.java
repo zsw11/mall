@@ -26,7 +26,7 @@ public class CancelOrderSender {
             @Override
             public Message postProcessMessage(Message message) throws AmqpException {
                 //给消息设置延迟毫秒值
-                message.getMessageProperties().setExpiration(String.valueOf(delayTimes));
+                message.getMessageProperties().setExpiration(String.valueOf(delayTimes)); // 到了60分钟后，消息扔到死信队列QUEUE_ORDER_CANCEL
                 return message;
             }
         });
