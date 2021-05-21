@@ -32,6 +32,9 @@ public class SmsCoupon implements Serializable {
 
     private Date endTime;
 
+    /**
+     * 使用类型：0->全场通用；1->指定分类；2->指定商品
+     */
     @ApiModelProperty(value = "使用类型：0->全场通用；1->指定分类；2->指定商品")
     private Integer useType;
 

@@ -35,7 +35,7 @@ public class OmsPortalOrderController {
         return CommonResult.success(confirmOrderResult);
     }
 
-    @ApiOperation("根据购物车信息生成订单")
+    @ApiOperation("根据购物车信息生成订单,真实下单")
     @RequestMapping(value = "/generateOrder", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult generateOrder(@RequestBody OrderParam orderParam) {

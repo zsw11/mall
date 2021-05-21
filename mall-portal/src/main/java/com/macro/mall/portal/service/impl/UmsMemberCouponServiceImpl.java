@@ -122,6 +122,7 @@ public class UmsMemberCouponServiceImpl implements UmsMemberCouponService {
         List<SmsCouponHistoryDetail> disableList = new ArrayList<>();
         for (SmsCouponHistoryDetail couponHistoryDetail : allList) {
             Integer useType = couponHistoryDetail.getCoupon().getUseType();
+            //优惠券 使用门槛，0 无门槛
             BigDecimal minPoint = couponHistoryDetail.getCoupon().getMinPoint();
             Date endTime = couponHistoryDetail.getCoupon().getEndTime();
             if(useType.equals(0)){
@@ -224,7 +225,7 @@ public class UmsMemberCouponServiceImpl implements UmsMemberCouponService {
         BigDecimal total = new BigDecimal("0");
         for (CartPromotionItem item : cartItemList) {
             if(productCategoryIds.contains(item.getProductCategoryId())){
-                BigDecimal realPrice = item.getPrice().subtract(item.getReduceAmount());
+                BigDecimal realPrice = item.getPrice().subtract(item.getReduceAmount());// 减去
                 total=total.add(realPrice.multiply(new BigDecimal(item.getQuantity())));
             }
         }

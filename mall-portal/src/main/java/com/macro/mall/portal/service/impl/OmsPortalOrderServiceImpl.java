@@ -76,7 +76,7 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
         //获取用户收货地址列表
         List<UmsMemberReceiveAddress> memberReceiveAddressList = memberReceiveAddressService.list();
         result.setMemberReceiveAddressList(memberReceiveAddressList);
-        //获取用户可用优惠券列表
+        //获取用户可用优惠券列表 参数1为获取有效的
         List<SmsCouponHistoryDetail> couponHistoryDetailList = memberCouponService.listCart(cartPromotionItemList, 1);
         result.setCouponHistoryDetailList(couponHistoryDetailList);
         //获取用户积分
@@ -234,7 +234,7 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
         }
         //删除购物车中的下单商品
         deleteCartItemList(cartPromotionItemList, currentMember);
-        //发送延迟消息取消订单
+        //发送延迟消息取消订单,10分钟没有消费，扔到死信队列，取消订单
         sendDelayMessageCancelOrder(order.getId());
         Map<String, Object> result = new HashMap<>();
         result.put("order", order);
