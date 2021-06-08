@@ -39,7 +39,7 @@ public class UmsMemberController {
     public CommonResult register(@RequestParam String username,
                                  @RequestParam String password,
                                  @RequestParam String telephone,
-                                 @RequestParam String authCode) {
+                                 @RequestParam String authCode) throws Exception {
         memberService.register(username, password, telephone, authCode);
         return CommonResult.success(null,"注册成功");
     }

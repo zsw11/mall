@@ -75,7 +75,7 @@ public class UmsMemberServiceImpl implements UmsMemberService {
     }
 
     @Override
-    public void register(String username, String password, String telephone, String authCode) {
+    public void register(String username, String password, String telephone, String authCode) throws Exception {
         //验证验证码
         if(!verifyAuthCode(authCode,telephone)){
             Asserts.fail("验证码错误");
@@ -103,6 +103,10 @@ public class UmsMemberServiceImpl implements UmsMemberService {
             umsMember.setMemberLevelId(memberLevelList.get(0).getId());
         }
         memberMapper.insert(umsMember);
+//        if( !StringUtils.isEmpty(username)){
+//            throw new Exception("异常");
+//        }
+//        int a = 10/0;
         umsMember.setPassword(null);
     }
 

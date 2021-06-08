@@ -22,8 +22,8 @@ public interface UmsMemberService {
     /**
      * 用户注册
      */
-    @Transactional
-    void register(String username, String password, String telephone, String authCode);
+    @Transactional(rollbackFor=RuntimeException.class)
+    void register(String username, String password, String telephone, String authCode) throws Exception;
 
     /**
      * 生成验证码
