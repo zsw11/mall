@@ -31,7 +31,7 @@ public class EsProduct implements Serializable {
     @Field(type = FieldType.Keyword)      //不需要中文分词
     private String productCategoryName;
     private String pic;
-    @Field(analyzer = "ik_max_word",type = FieldType.Text) //需要中文分词
+    @Field(analyzer = "ik_max_word",type = FieldType.Text) // analyzer = "ik_max_word" 需要中文分词
     private String name;
     @Field(analyzer = "ik_max_word",type = FieldType.Text)
     private String subTitle;
